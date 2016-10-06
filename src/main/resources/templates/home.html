@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Some title</title>
+</head>
+<body>
+
+<!--/*@thymesVar id="entries" type="org.springframework.data.domain.Page<com.theironyard.entity.RssEntry>"*/-->
+<ul th:each="entry : ${entries}">
+    <li>
+        <h1 th:text="${entry.title}">Some article title goes here</h1>
+        <img src="" th:if="${entry.imageUrl != null}" th:src="@{${entry.imageUrl}}" />
+        <div th:text="${entry.description}">Yada yada</div>
+    </li>
+</ul>
+
+</body>
+</html>
